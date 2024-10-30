@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3, 
+  "name": "test extentions",
+  "description" : "this is a test extention",
+  "version": "1.0",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "/icons/block.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "/icons/block.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions":["scripting", "activeTab", "tabs", "nativeMessaging", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:3000/text.html"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

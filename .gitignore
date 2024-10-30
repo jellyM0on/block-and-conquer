@@ -1,0 +1,55 @@
+# Node modules
+node_modules/
+
+# Log files
+npm-debug.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build directories
+dist/
+build/
+dist-ssr
+
+# Webpack cache files
+.cache/
+.cache-loader/
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+!.vscode/extensions.json
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript compiled files
+*.tsbuildinfo
+
+# Env files
+.env
+*.local
+
+# Coverage directory used by testing tools like jest
+coverage/
+
+# Others
+*.log
+*.bak
+*.swp
+*.swo
+*.tmp
+*.temp
+
