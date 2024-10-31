@@ -1,0 +1,117 @@
+/* General styling for the navigation bar */
+nav {
+    width: 80%; 
+    max-width: 1280px;
+    background: white;
+    color: black;
+    padding: 10px 0;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.logo {
+    height: 30px;
+}
+
+/* List styling */
+ul {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 50px;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.circle-1 {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #E8E35D;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.circle-2 {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #2986FF;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.circle-3 {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #FF4400;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+nav ul li:hover {
+    background-color: #f0f0f0; 
+    color: #FF4400; 
+}
+
+button {
+    padding: 15px 30px;
+    border: none;
+    font-family: 'Qanelas', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 10px;
+}
+
+.login-btn {
+    background-color: #ffffff;
+    color: #FF4400;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.login-btn:active {
+    background-color: #004494;
+    transform: scale(0.98);
+}
+
+.signup-btn {
+    background-color: #FF4400;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.signup-btn:active {
+    background-color: #b3b3b3;
+    transform: scale(0.98);
+}
