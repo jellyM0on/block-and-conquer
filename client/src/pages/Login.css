@@ -1,7 +1,152 @@
 /* test */
 /* create a root pseudo-class */
 
+:root {
+  --orange: #ff4400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  text-align: center;
+}
+
+.login-title {
+  padding-left: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
 .signup {
-  background-color: #ff5722;
+  background-color: var(--orange);
   color: white;
 }
+
+.signup:hover {
+  background-color: #d83c03;
+}
+
+.google-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #b3b3b3;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 10px 40px;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  border: 1px solid var(--orange);
+}
+
+.google-btn img {
+  margin-right: 20px;
+  width: 25px;
+  height: auto;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 32px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  width: 544px;
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.or-divider {
+  padding: 0 50px;
+  font-weight: 300px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+  margin-bottom: 20px;
+}
+
+input {
+  box-sizing: border-box;
+  background-color: #292929;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  width: 380px;
+  height: 50px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+input::placeholder {
+  color: white;
+}
+
+input:focus::placeholder {
+  opacity: 0.5;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--orange);
+}
+
+.login {
+  background-color: var(--orange);
+  color: #fff;
+  padding: 5px;
+  border: none;
+  border-radius: 12px;
+  padding: 24px 64px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+/*
+  fix: eye toggle/icon
+  to style: forgot password,tnc
+*/
