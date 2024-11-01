@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { btnIcons, logoIcons } from "../assets/assets";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Login() {
-  {
-    /*functionalities/events: setting email and password, showing password(toggle), handle login + Google */
-  }
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Password visibility
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // for handling email and password
+  // for logging in using Google
 
   return (
     <div className="login-wrapper">
       <div className="login-container">
         <div className="header">
-          <div className="close-btn">
-            <img src={btnIcons.closeBtn} alt="close" />
+          <div className="close-btn-container">
+            <img src={btnIcons.closeBtn} alt="close" className="close-btn" />
           </div>
 
           <h2 className="login-title">Log In</h2>
@@ -34,8 +40,6 @@ function Login() {
           <span className="or-divider">OR</span>
         </div>
 
-        {/* Email, Password, Login Button, Forgot Password, TNC*/}
-
         <form action="#" className="login-form">
           <div className="input-wrapper email-wrapper">
             <input
@@ -48,18 +52,20 @@ function Login() {
 
           <div className="input-wrapper password-wrapper">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="PASSWORD"
               className="input-field"
               required
             />
-            <p>
-              <FaRegEye className="eye-icon" />
+            <p onClick={togglePasswordVisibility} className="eye-icon">
+              {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
             </p>
           </div>
 
           <div className="login-btn">
-            <button className="login">LOG IN</button>
+            <button type="submit" className="login">
+              LOG IN
+            </button>
           </div>
         </form>
 
@@ -67,10 +73,15 @@ function Login() {
           Forgot password?
         </a>
 
-        <p className="tnc">
-          By continuing, you acknowledge that you have read and understood, and
-          agree to Block&Conquer’s Terms of Service and Privacy Policy
-        </p>
+        <div className="tnc-container">
+          <p className="tnc">
+            By continuing, you acknowledge that you have read and understood,
+            and agree to Block&Conquer’s{" "}
+            <a href="#" className="tnc-link">
+              Terms of Service and Privacy Policy
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
