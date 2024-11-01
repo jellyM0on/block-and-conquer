@@ -4,6 +4,8 @@ import { btnIcons, logoIcons } from "../assets/assets";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   // Password visibility
@@ -12,6 +14,12 @@ function Login() {
   };
 
   // for handling email and password
+  const handleLogin = (event) => {
+    event.preventDefault();
+    console.log("Email: ", email);
+    console.log("Password: ", password);
+  };
+
   // for logging in using Google
 
   return (
@@ -40,12 +48,15 @@ function Login() {
           <span className="or-divider">OR</span>
         </div>
 
-        <form action="#" className="login-form">
+        <form action="#" className="login-form" onSubmit={handleLogin}>
           <div className="input-wrapper email-wrapper">
             <input
               type="email"
+              id="email"
               placeholder="EMAIL"
               className="input-field"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -53,8 +64,11 @@ function Login() {
           <div className="input-wrapper password-wrapper">
             <input
               type={showPassword ? "text" : "password"}
+              id="password"
               placeholder="PASSWORD"
               className="input-field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <p onClick={togglePasswordVisibility} className="eye-icon">

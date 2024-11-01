@@ -15,6 +15,20 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle 180px, #ff6c1d, #fff1e8);
+  filter: blur(80px);
+  z-index: -1;
 }
 
 .login-container {
@@ -89,12 +103,13 @@ body {
   width: 544px;
   flex: 1;
   height: 1px;
-  background: #ddd;
+  background: #292929;
 }
 
 .or-divider {
   padding: 0 50px;
-  font-weight: 300px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 form {
@@ -131,16 +146,12 @@ input:focus::placeholder {
   margin-bottom: 40px;
 }
 
-/*
-  fix: eye toggle/icon
-*/
-
 .eye-icon {
   width: 20px;
   height: 20px;
   position: absolute;
   right: 430px;
-  top: 45%;
+  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   color: white;
@@ -149,12 +160,12 @@ input:focus::placeholder {
 .login {
   background-color: var(--orange);
   color: #fff;
-  padding: 5px;
   border: none;
   border-radius: 12px;
   padding: 24px 64px;
   cursor: pointer;
   margin-bottom: 8px;
+  font-size: 18px;
 }
 
 .forgot-pass {
