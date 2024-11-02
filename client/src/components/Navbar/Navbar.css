@@ -16,7 +16,9 @@ nav{
 }
 
 .logo{
-    height: 30px;
+    max-width: 100%; /* Ensure it doesn't overflow its container */
+    max-height: 30px; /* Limit height to 30px */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .navbar-ul{

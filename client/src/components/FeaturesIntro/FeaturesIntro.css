@@ -2,14 +2,27 @@
     width: 90%; 
     max-width: 1380px;
 
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 80px;
     
     position: relative;
 
     left: 50%;
     transform: translateX(-50%);
+    overflow: hidden;
+}
+
+.intro-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 350px;
+    
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+    pointer-events: none;
 }
 
 .intro-header{
@@ -19,11 +32,23 @@
     align-items: center;
 }
 
+@font-face{
+    font-family: QanelasSemiBold;
+    src: url(../public/QanelasSemiBold.otf)
+}
+
 .intro-label{
     width: 130px;
     height: 50px;
-    align-content: center
-    
+    align-content: center;
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+
+    font-family: QanelasSemiBold;
+    font-size: 18px;
+    color: #5A5959;
+
+    box-shadow: 0px 8px 36.7px -9px rgba(0, 0, 0, 0.25);
 }
 
 @font-face{
@@ -32,22 +57,73 @@
 }
 
 .intro-header h1 {
-    max-width: 500px;
+    max-width: 600px;
     font-family: RalewaySemiBold;
+    font-size: 40px;
+    color: #222222;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .features-desc{
     display: flex;
+    border-left: 1px solid #C2C2C2;
+    border-right: 1px solid #C2C2C2;
+    border-top: 1px solid #C2C2C2;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+}
+
+.features-desc p{
+    font-family: RalewaySemiBold;
+    font-size: 20px;
+    line-height: 26px;
+    color: #5A5959;
+
+    width: 100%;
+    max-width: 400px;
+
+}
+
+.features-icon{
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+.flashcards-desc{
+    padding: 60px 80px;
+}
+
+.pomodoro-desc{
+    padding: 60px 80px;
+    border-left: 1px solid #C2C2C2;
+    border-right: 1px solid #C2C2C2;
+}
+
+.gamify-desc{
+    padding: 60px 80px;
+}
+
+.dashboard-container{
+    border-left: 1px solid #C2C2C2;
+    border-right: 1px solid #C2C2C2;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    max-height: 760px;
 }
 
 .dashboard-bg{
     background-color: #FF662F;
-    padding: 40px;
-    
+    padding-top: 72px;
+    box-sizing: border-box;
+
     display: flex;
     justify-content: center;
+    border-radius: 40px;
 }
 
 .dashboard-pic{
-    max-width: 95%;
+    max-width: 90%;
+    border-radius: 31px;
 }
