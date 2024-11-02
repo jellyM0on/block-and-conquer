@@ -1,45 +1,57 @@
-/* General styling for the navigation bar */
-nav {
-    width: 80%; 
-    max-width: 1320px;
-    background: white;
+nav{
+    width: 90%; 
+    max-width: 1380px;
+
     color: black;
-    padding: 10px 0;
-    position: absolute;
-    top: 10px;
+    padding: 20px 40px;
+    position: relative;
+
     left: 50%;
     transform: translateX(-50%);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 10;
 }
 
-.logo {
+.logo{
     height: 30px;
 }
 
-/* List styling */
-ul {
+.navbar-ul{
     border: 1px solid black;
     padding: 5px;
     border-radius: 50px;
-    display: flex;
-    list-style: none;
     gap: 20px;
 }
 
-nav ul li {
-    display: flex;
-    align-items: center;
-    font-family: 'Qanelas', sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    color: black;
-    cursor: pointer;
+@font-face{
+    font-family: QanelasMedium;
+    src: url(../public/QanelasMedium.otf)
+}
+
+.navbar-ul li{
     padding: 10px 20px;
     border-radius: 25px;
+
+    font-family: QanelasMedium;
+    font-size: 19px;
+    color: #222222;
+
+    cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-ul li:hover{
+    background-color: #f0f0f0; 
+    color: #FF4400; 
+}
+
+.navbar-ul{
+    display: flex;
+    flex-grow: 0;
+    list-style: none;
 }
 
 .circle-1 {
@@ -69,21 +81,20 @@ nav ul li {
     margin-right: 8px;
 }
 
-nav ul li:hover {
-    background-color: #f0f0f0; 
-    color: #FF4400; 
+@font-face{
+    font-family: QanelasSemiBold;
+    src: url(../public/QanelasSemiBold.otf)
 }
 
-button {
+.nav-btn button {
     padding: 15px 30px;
     border: none;
-    font-family: 'Qanelas', sans-serif;
+    font-family: QanelasSemiBold;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-left: 10px;
 }
 
 .login-btn {
@@ -93,15 +104,14 @@ button {
 
 .login-btn:hover {
     background-color: #f0f0f0;
-    transform: scale(1.05);
 }
 
 .login-btn:active {
     background-color: #cfcfcf;
-    transform: scale(0.98);
 }
 
 .signup-btn {
+    margin-left: 10px;
     background-color: #FF4400;
     color: white;
 }

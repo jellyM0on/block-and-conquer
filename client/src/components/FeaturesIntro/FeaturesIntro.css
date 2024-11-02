@@ -1,0 +1,53 @@
+.intro-container{
+    width: 90%; 
+    max-width: 1380px;
+
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    
+    position: relative;
+
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.intro-header{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-label{
+    width: 130px;
+    height: 50px;
+    align-content: center
+    
+}
+
+@font-face{
+    font-family: RalewaySemiBold;
+    src: url(../public/Raleway-SemiBold.ttf)
+}
+
+.intro-header h1 {
+    max-width: 500px;
+    font-family: RalewaySemiBold;
+}
+
+.features-desc{
+    display: flex;
+}
+
+.dashboard-bg{
+    background-color: #FF662F;
+    padding: 40px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-pic{
+    max-width: 95%;
+}

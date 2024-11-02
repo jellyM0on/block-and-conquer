@@ -1,12 +1,15 @@
 import React from 'react'
+import './Landing.css'
 import Navbar from '../../components/Navbar/Navbar'
-import Preview from '../../components/Preview/Preview'
+import HeroSection from '../../components/HeroSection/HeroSection'
+import FeaturesIntro from '../../components/FeaturesIntro/FeaturesIntro'
 
 function Landing() {
   return (
-    <div>
+    <div className='landing-content'>
         <Navbar/>
-        <Preview/>
+        <HeroSection/>
+        <FeaturesIntro/>
     </div>
   )
 }

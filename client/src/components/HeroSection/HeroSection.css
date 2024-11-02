@@ -1,0 +1,74 @@
+.hero-container{
+    width: 90%; 
+    max-width: 1380px;
+    height: 900px;
+    
+    display: flex;
+    position: relative;
+
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-content{
+    background-image: url('../../assets/preview.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    max-width: 1380px;
+
+    border: 1px solid black;
+    border-radius: 36px;
+    overflow: hidden;
+    align-content: center;   
+}
+
+.hero-text{
+    margin-left: 80px;
+}
+
+.title{
+    height: 90px;
+}
+
+@font-face{
+    font-family: RalewaySemiBold;
+    src: url(../public/Raleway-SemiBold.ttf)
+}
+
+.hero-desc{
+    max-width: 800px;
+    font-family: RalewaySemiBold;
+    font-size: 36px;
+    line-height: 48px;
+    color: #5A5959;
+}
+
+@font-face{
+    font-family: RalewayExtraBold;
+    src: url(../public/Raleway-ExtraBold.ttf)
+}
+
+.hero-highlight{
+    font-family: RalewayExtraBold;
+    font-weight: 800;
+    color: #5A5959;
+}
+
+.hero-btn {
+    margin-top: 50px;
+    padding: 34px 68px;
+    background-color: #FF662F;
+    color: white;
+    border: none;
+    border-radius: 80px;
+    font-family: RalewaySemiBold;
+    font-size: 36px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-btn:hover{
+    background-color: #CC4A1B;
+}
