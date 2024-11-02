@@ -1,11 +1,11 @@
 /* General styling for the navigation bar */
 nav {
     width: 80%; 
-    max-width: 1280px;
+    max-width: 1320px;
     background: white;
     color: black;
     padding: 10px 0;
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
@@ -92,12 +92,12 @@ button {
 }
 
 .login-btn:hover {
-    background-color: #0056b3;
+    background-color: #f0f0f0;
     transform: scale(1.05);
 }
 
 .login-btn:active {
-    background-color: #004494;
+    background-color: #cfcfcf;
     transform: scale(0.98);
 }
 
@@ -112,6 +112,6 @@ button {
 }
 
 .signup-btn:active {
-    background-color: #b3b3b3;
+    background-color: #237735;
     transform: scale(0.98);
 }
