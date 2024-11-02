@@ -118,7 +118,8 @@ form {
 }
 
 .input-wrapper {
-  margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 input {
@@ -143,10 +144,11 @@ input:focus::placeholder {
 
 .password-wrapper {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 4px;
 }
 
 .eye-icon {
+  position: absolute;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -164,6 +166,7 @@ input:focus::placeholder {
   border-radius: 12px;
   padding: 24px 64px;
   cursor: pointer;
+  margin-top: 20px;
   margin-bottom: 8px;
   font-size: 18px;
 }
@@ -198,4 +201,9 @@ input:focus::placeholder {
 .tnc-link {
   color: #292929;
   text-decoration: underline;
+}
+
+.error-message {
+  font-size: 12px;
+  font-weight: 400;
 }

@@ -7,6 +7,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Password visibility
   const togglePasswordVisibility = () => {
@@ -14,10 +15,37 @@ function Login() {
   };
 
   // for handling email and password
+
+  //to be improved
+
+  const isValidEmail = (email) => {
+    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegEx.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    return password.length >= 6;
+  };
+
   const handleLogin = (event) => {
     event.preventDefault();
-    console.log("Email: ", email);
-    console.log("Password: ", password);
+    setErrorMessage("");
+
+    let validEmail = isValidEmail(email);
+    let validPassword = isValidPassword(password);
+
+    // to be improved
+
+    if (!validEmail && !validPassword) {
+      setErrorMessage("Please enter a valid email and password. Try again.");
+    } else if (!validEmail) {
+      setErrorMessage("Please enter a valid email.");
+    } else if (!validPassword) {
+      setErrorMessage("Password must be at least 6 characters long.");
+    } else {
+      console.log("Email: ", email);
+      console.log("Password: ", password);
+    }
   };
 
   // for logging in using Google
@@ -76,6 +104,7 @@ function Login() {
             </p>
           </div>
 
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <div className="login-btn">
             <button type="submit" className="login">
               LOG IN
