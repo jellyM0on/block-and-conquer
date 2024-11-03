@@ -1,0 +1,198 @@
+.features-container{
+    width: 90%; 
+    max-width: 1380px;
+
+    position: relative;
+    margin-top: 110px;
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+
+    background-color: #F5F4F1;
+    border: 1px solid #D1D1D1;
+    border-radius: 36px;
+
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.features-header{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.features-header h1{
+    max-width: 700px;
+    font-family: RalewaySemiBold;
+    font-size: 48px;
+    color: #222222;
+    margin-top: 40px;
+}
+
+.features-subtitle{
+    font-family: RalewaySemiBold;
+    font-size: 24px;
+    color: #5A5959;
+    margin-top: 10px;
+}
+
+.features-footer{
+    font-family: RalewaySemiBold;
+    font-size: 24px;
+    color: #5A5959;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.features-label{
+    width: 130px;
+    height: 50px;
+    align-content: center;
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+
+    font-family: QanelasSemiBold;
+    font-size: 18px;
+    color: #5A5959;
+
+    box-shadow: 0px 8px 36.7px -9px rgba(0, 0, 0, 0.25);
+}
+
+.features-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.block-card{
+    max-width: 500px;
+    height: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+    overflow: hidden;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    justify-content: space-between;
+}
+
+.pomodoro-card {
+    max-width: 500px;
+    height: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+    overflow: hidden;
+    padding: 40px 0 50px; /* Adjusted to maintain space */
+    justify-content: flex-start; /* Start at the top */
+}
+
+.community-card{
+    max-width: 689px;
+    height: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+    overflow: hidden;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: space-between;
+}
+
+.customize-card{
+    max-width: 689px;
+    height: 550px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    justify-content: space-between;
+}
+
+.features-grid h2{
+    font-family: RalewaySemiBold;
+    font-size: 24px;
+    margin-bottom: 14px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.features-grid p{
+    font-family: RalewaySemiBold;
+    font-size: 18px;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 30px;
+    color: #5A5959;
+}
+
+.features-footer{
+    text-align: center;
+}
+
+.block-img{
+    transform: scale(.95);
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.community-img{
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.customize-img{
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.pomodoro-img {
+    width: 275px; /* Ensuring the width is defined */
+    margin: 0 auto; /* Centers the image */
+    padding-top: 20px;
+    padding-bottom: 40px;
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.block-img:hover{
+    transform: scale(0.98);
+}
+
+.community-img:hover, .customize-img:hover, .pomodoro-img:hover {
+    transform: scale(1.03);
+}
