@@ -1,12 +1,15 @@
-const express = require('express'); 
+import express from "express"; 
+import cors from "cors"; 
+import { sequelize } from "./config/database.js";
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('test')
-}); 
+app.use(express.json());
+app.use(cors()); 
 
-app.listen(port, () => {
-    console.log(`server listening on port ${port}`)
-}); 
+sequelize.authenticate().then(() => {
+    app.listen(port, () => `database connected on ${port}`); 
+}).catch((error) => {
+    console.log(error.message)
+})
