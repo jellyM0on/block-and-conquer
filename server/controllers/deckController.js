@@ -55,7 +55,7 @@ const deleteDeck = asyncHandler(async(req, res) => {
     const { deckId } = req.params;
     await Deck.destroy({
         where: {
-            id: userId
+            id: deckId
         }
     })
     res.status(200);
