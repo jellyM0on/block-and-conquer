@@ -1,9 +1,7 @@
 import { Deck } from "../models/Deck.js";
 import asyncHandler from "../utils/asyncHandler.js";
-import { sequelize } from "../config/database.js";
 
 const getDecks = asyncHandler(async(req, res, next) => {
-    await sequelize.sync()
     const decks = await Deck.findAll({
         where: {
             privacy: "Public"
@@ -14,7 +12,7 @@ const getDecks = asyncHandler(async(req, res, next) => {
 
 const getUserDecks = asyncHandler(async(req, res) => {
     const { userId } = req.params;
-    const decks = await Deck.find({
+    const decks = await Deck.findAll({
         where: {
             userId : userId
         }
@@ -33,7 +31,7 @@ const getDeck = asyncHandler(async(req, res) => {
 })
 
 const createDeck = asyncHandler(async(req, res) => {
-    const { deckData } = req.params; 
+    const { deckData } = req.body; 
     const deck = Deck.build(deckData); 
     deck.validate(); 
     await deck.save();
