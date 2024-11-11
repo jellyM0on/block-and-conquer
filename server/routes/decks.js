@@ -1,19 +1,19 @@
 import express from "express";
-import { getDecks, getUserDecks, getDeck, createDeck, updateDeck, deleteDeck } from "../controllers/deckController.js";
+import { deckController } from "../controllers/deckController.js";
 
 const router = express.Router(); 
 
 //get all decks
-router.get("/api/decks", getDecks);
+router.get("/api/decks", deckController.getAll);
 
 //get all decks from a user
-router.get("/api/decks/:userId", getUserDecks);
+router.get("/api/decks/users/:userId", deckController.getUserDecks);
 
-//get a deck
-router.get("/api/decks/:deckId", getDeck);
-router.post("/api/decks/:deckId", createDeck);
-router.patch("/api/decks/:deckId", updateDeck);
-router.delete("/api/decks/:deckId", deleteDeck);
+// //get a deck
+router.get("/api/decks/:deckId", deckController.get);
+router.post("/api/decks/:deckId", deckController.create);
+router.patch("/api/decks/:deckId", deckController.update);
+router.delete("/api/decks/:deckId", deckController.delete);
 
 export default router; 
 

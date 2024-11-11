@@ -1,57 +1,19 @@
 import { Card } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
+import { Base } from "./baseController.js";
 
 
-const getCards = asyncHandler(async(req, res) => {
-    const { deckId } = req.params;
-    const cards = await Card.findAll({
-        where: {
-            deckId: deckId
-        }
-    }); 
-    res.status(200).json(cards); 
-});
+class CardController extends Base {
 
-const getCard = asyncHandler(async(req, res) => {
-    const { cardId, deckId } = req.params;
-    const card = await Card.findOne({
-        where: {
-            id: cardId,
-            deckId: deckId
-        }
-    }); 
-    res.status(200).json(card); 
-});
+}
 
-const createCard = asyncHandler(async(req, res) => {
-    const { cardData } = req.body; 
-    const card = Card.build(cardData); 
-    card.validate(); 
-    await card.save();
-    res.status(200).json(card);
-});
+const constraints = {
+    get: (req) => ({ id: req.params.cardId, deckId: req.params.deckId }),
+    getAll: (req) => ({ deckId: req.params.deckId}),
+    update: (req) => ({ id: req.params.cardId, deckId: req.params.deckId }), 
+    delete: (req) => ({ id: req.params.cardId, deckId: req.params.deckId })
+}
 
-const updateCard = asyncHandler(async(req, res) => {
-    const { cardId, deckId } = req.params; 
-    const updatedFields = req.body; 
-    const card = await Card.update(updatedFields, {
-        where: {
-            id: cardId,
-            deckId: deckId
-        }
-    })
-    res.status(200).json(card);
-});
+const cardController = new CardController(Card, "deckId"); 
 
-const deleteCard = asyncHandler(async(req, res) => {
-    const { cardId, deckId } = req.params;
-    await Card.destroy({
-        where: {
-            id: cardId,
-            deckId: deckId
-        }
-    })
-    res.status(200);
-}); 
-
-export { getCards, getCard, createCard, updateCard, deleteCard }
+export { cardController }

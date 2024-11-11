@@ -1,18 +1,16 @@
 import express from "express";
-import { getCollaborations, getCollaborators, createCollaboration, 
-    updateCollaboration, deleteCollaboration } 
-    from "../controllers/collaboratorController.js";
+import { collaboratorController } from "../controllers/collaboratorController.js";
 
 const router = express.Router(); 
 
 // get collabs of a deck
-router.get("/api/collab/:deckId", getCollaborators);
+router.get("/api/collabs/:deckId", collaboratorController.getAll);
 
 // get collabs of a user 
-router.get("/api/collab/:userId", getCollaborations);
+router.get("/api/collabs/users/:userId", collaboratorController.getCollaborations);
 
-router.post("/api/collab/:deckId", createCollaboration);
-router.put("/api/collab/:deckId/", updateCollaboration);
-router.delete("/api/collab/:deckId/", deleteCollaboration);
+router.post("/api/collabs/:deckId", collaboratorController.create);
+router.put("/api/user/:userId/collabs/:deckId", collaboratorController.update);
+router.delete("/api/user/:userId/collabs/:deckId", collaboratorController.delete);
 
 export default router; 

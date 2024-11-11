@@ -1,62 +1,28 @@
 import { Deck } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
+import { Base } from "./baseController.js"
 
-const getDecks = asyncHandler(async(req, res, next) => {
-    const decks = await Deck.findAll({
-        where: {
-            privacy: "Public"
-        }
-    }); 
-    res.status(200).json(decks); 
-});
 
-const getUserDecks = asyncHandler(async(req, res) => {
-    const { userId } = req.params;
-    const decks = await Deck.findAll({
-        where: {
-            userId : userId
-        }
-    }); 
-    res.status(200).json(decks); 
-});
+class DeckController extends Base {
 
-const getDeck = asyncHandler(async(req, res) => {
-    const { deckId } = req.params;
-    const deck = await Deck.findOne({
-        where: {
-            id: deckId
-        }
-    })
-    res.status(200).json(deck);
-})
+    getUserDecks = asyncHandler(async(req, res) => {
+        const { userId } = req.params;
+        const decks = await this.model.findAll({
+            where: {
+                userId : userId
+            }
+        }); 
+        res.status(200).json(decks); 
+    });
+}
 
-const createDeck = asyncHandler(async(req, res) => {
-    const { deckData } = req.body; 
-    const deck = Deck.build(deckData); 
-    deck.validate(); 
-    await deck.save();
-    res.status(200).json(deck);
-})
+const constraints = {
+    get: (req) => ({ id: req.params.deckId }),
+    getAll: (req) => ({ privacy: "Public"}),
+    update: (req) => ({ id: req.params.deckId}), 
+    delete: (req) => ({ id: req.params.deckId})
+}
 
-const updateDeck = asyncHandler(async(req, res) => {
-    const { deckId } = req.params; 
-    const updatedFields = req.body; 
-    const deck = await Deck.update(updatedFields, {
-        where: {
-            id: deckId
-        }
-    })
-    res.status(200).json(deck);
-})
+const deckController = new DeckController(Deck, constraints); 
 
-const deleteDeck = asyncHandler(async(req, res) => {
-    const { deckId } = req.params;
-    await Deck.destroy({
-        where: {
-            id: deckId
-        }
-    })
-    res.status(200);
-})
-
-export { getDecks, getUserDecks, getDeck, createDeck, updateDeck, deleteDeck }
+export { deckController }

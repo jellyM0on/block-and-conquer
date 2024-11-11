@@ -1,13 +1,15 @@
 import express from "express";
-import { getCards, getCard, createCard, updateCard, deleteCard } from "../controllers/cardController.js";
+// import { getCards, getCard, createCard, updateCard, deleteCard } from "../controllers/cardController.js";
+import { cardController } from "../controllers/cardController.js";
 
 const router = express.Router(); 
 
-router.get("/api/cards/:deckId", getCards);
+router.get("/api/cards/:deckId", cardController.getAll);
 
-router.get("/api/cards/:deckId/:cardId", getCard);
-router.post("/api/cards/:deckId/:cardId", createCard);
-router.put("/api/cards/:deckId/:cardId", updateCard);
-router.delete("/api/cards/:deckId/:cardId", deleteCard);
+router.get("/api/cards/:deckId/:cardId", cardController.get);
+
+router.post("/api/cards/:deckId", cardController.create);
+router.put("/api/cards/:deckId/:cardId", cardController.update);
+router.delete("/api/cards/:deckId/:cardId", cardController.delete);
 
 export default router; 
