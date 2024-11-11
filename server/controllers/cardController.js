@@ -14,6 +14,6 @@ const constraints = {
     delete: (req) => ({ id: req.params.cardId, deckId: req.params.deckId })
 }
 
-const cardController = new CardController(Card, "deckId"); 
+const cardController = new CardController(Card, constraints); 
 
 export { cardController }
