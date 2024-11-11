@@ -1,7 +1,7 @@
 import express from "express";
 import { getCollaborations, getCollaborators, createCollaboration, 
     updateCollaboration, deleteCollaboration } 
-    from "../controllers/cardController.js";
+    from "../controllers/collaboratorController.js";
 
 const router = express.Router(); 
 

@@ -1,4 +1,4 @@
-import { Collaborator } from "../models/Collaborator.js";
+import { Collaborator } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 
 const getCollaborators = asyncHandler(async(req, res) => {

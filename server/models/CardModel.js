@@ -1,7 +1,7 @@
 import { DataTypes as dt } from "sequelize";
 import { sequelize } from "../config/database.js";
 
-const Card = sequelize.define("Card", {
+const CardModel = sequelize.define("Card", {
     id: {
         type: dt.INTEGER,
         primaryKey: true,
@@ -54,4 +54,4 @@ const Card = sequelize.define("Card", {
     timestamps: true
 })
 
-export { Card }
+export { CardModel }

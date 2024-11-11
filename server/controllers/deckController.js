@@ -1,4 +1,4 @@
-import { Deck } from "../models/Deck.js";
+import { Deck } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 
 const getDecks = asyncHandler(async(req, res, next) => {

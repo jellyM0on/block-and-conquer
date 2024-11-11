@@ -1,7 +1,7 @@
 import { DataTypes as dt } from "sequelize";
 import { sequelize } from "../config/database.js";
 
-const Deck = sequelize.define("Deck", {
+const DeckModel = sequelize.define("Deck", {
     id: {
         type: dt.INTEGER,
         primaryKey: true,
@@ -58,4 +58,4 @@ const Deck = sequelize.define("Deck", {
     timestamps: true
 })
 
-export { Deck }
+export { DeckModel }

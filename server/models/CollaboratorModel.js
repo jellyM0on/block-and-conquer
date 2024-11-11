@@ -1,7 +1,7 @@
 import { DataTypes as dt } from "sequelize";
 import { sequelize } from "../config/database.js";
 
-const Collaborator = sequelize.define("Collaborator", {
+const CollaboratorModel = sequelize.define("Collaborator", {
     userId: {
         type: dt.INTEGER,
         primaryKey: true,
@@ -18,4 +18,4 @@ const Collaborator = sequelize.define("Collaborator", {
     timestamps: true
 })
 
-export { Collaborator }
+export { CollaboratorModel }

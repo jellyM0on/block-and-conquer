@@ -1,4 +1,4 @@
-import { Card } from "../models/Card.js";
+import { Card } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 
 
@@ -20,7 +20,7 @@ const getCard = asyncHandler(async(req, res) => {
             deckId: deckId
         }
     }); 
-    res.status(200).json(cards); 
+    res.status(200).json(card); 
 });
 
 const createCard = asyncHandler(async(req, res) => {
