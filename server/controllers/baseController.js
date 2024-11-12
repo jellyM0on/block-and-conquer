@@ -3,7 +3,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 class Base {
     constructor(model, constraints){
         this.model = model; 
-        this.constraints = constraints
+        this.constraints = constraints; 
     }
 
     get = asyncHandler(async(req,res, next) => {
@@ -42,7 +42,7 @@ class Base {
 
     delete = asyncHandler(async(req,res, next) => {
         const constraint = this.constraints.delete ? this.constraints.delete(req) : {};
-        await Deck.destroy({
+        await this.model.destroy({
             where: constraint
         });
         res.status(200);
