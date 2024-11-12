@@ -5,7 +5,7 @@ import { collaboratorService } from "../services/cardService.js";
 class CollaboratorController extends BaseController {
   
     getAllFromUser = asyncHandler(async(req, res) => {
-        const data = await this.service.getAll(this.model, ({ userId: req.params.userId })); 
+        const data = await this.service.getAll(({ userId: req.params.userId })); 
         return res.status(200).json(data); 
     });
 
