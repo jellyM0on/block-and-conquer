@@ -19,10 +19,14 @@ class BaseService {
     }
 
     async createOne(data){
-        const newData = this.model.build(data); 
-        newData.validate(); 
-        await newData.save();
-        return newData; 
+        try{
+            const newData = this.model.build(data); 
+            await newData.save();
+            return newData; 
+        } catch (error){
+            console.error("Error saving", error)
+        }
+       
     }
 
     async updateOne(constraint, data){

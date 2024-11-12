@@ -51,6 +51,12 @@ const DeckModel = sequelize.define("Deck", {
     },
     views: {
         type: dt.INTEGER,
+    },
+    createdAt: {
+        type: dt.DATE,
+    }, 
+    updatedAt: {
+        type: dt.DATE, 
     }
 }, {
     tableName: "Decks",

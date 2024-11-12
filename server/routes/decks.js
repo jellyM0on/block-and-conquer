@@ -11,7 +11,7 @@ router.get("/api/decks/users/:userId", deckController.getAllFromUser);
 
 // //get a deck
 router.get("/api/decks/:deckId", deckController.getWithComments);
-router.post("/api/decks/:deckId", deckController.create);
+router.post("/api/decks", deckController.create);
 router.patch("/api/decks/:deckId", deckController.update);
 router.delete("/api/decks/:deckId", deckController.delete);
 

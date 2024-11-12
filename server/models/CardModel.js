@@ -49,6 +49,12 @@ const CardModel = sequelize.define("Card", {
     state : {
         type: dt.STRING,
     },
+    createdAt : {
+        type: dt.DATE,
+    }, 
+    updatedAt : {
+        type: dt.DATE
+    }
 }, {
     tableName: "Cards",
     timestamps: true

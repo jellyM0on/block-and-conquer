@@ -13,6 +13,12 @@ const CollaboratorModel = sequelize.define("Collaborator", {
     status: {
         type: dt.STRING,
     },
+    createdAt : {
+        type: dt.DATE,
+    }, 
+    updatedAt: {
+        type: dt.DATE,
+    }
 },  {
     tableName: "Collaborators",
     timestamps: true

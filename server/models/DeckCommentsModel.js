@@ -19,6 +19,12 @@ const DeckCommentsModel = sequelize.define("DeckComments", {
     referenceId: {
         type: dt.INTEGER,
     },
+    createdAt: {
+        type: dt.DATE,
+    },
+    updatedAt: {
+        type: dt.DATE
+    }
 }, {
     tableName: "Comments",
     timestamps: true
