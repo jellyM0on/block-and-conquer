@@ -9,7 +9,6 @@ const DeckModel = sequelize.define("Deck", {
     },
     userId: {
         type: dt.INTEGER,
-        unique: true
     },
     description: {
         type: dt.STRING,
