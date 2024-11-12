@@ -35,7 +35,7 @@ app.use(routes);
 // test route to verify 
 app.get('/', (req, res) => {
     if(req.isAuthenticated()){
-        res.send(`Hello!`); 
+        res.send(`Hello HANS!`); 
     } else {
         res.send('You are not logged in.');
     }
