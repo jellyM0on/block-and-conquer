@@ -1,19 +1,15 @@
 import { Deck } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
-import { Base } from "./baseController.js"
+import { BaseController } from "./baseController.js"
+import { BaseService } from "../services/baseService.js";
 
+class DeckController extends BaseController {
 
-class DeckController extends Base {
-
-    getUserDecks = asyncHandler(async(req, res) => {
-        const { userId } = req.params;
-        const decks = await this.model.findAll({
-            where: {
-                userId : userId
-            }
-        }); 
-        res.status(200).json(decks); 
+    getAllFromUser = asyncHandler(async(req, res) => {
+        const data = await BaseService.getAll(this.model, ({ userId: req.params.userId })); 
+        return res.status(200).json(data); 
     });
+    
 }
 
 const constraints = {

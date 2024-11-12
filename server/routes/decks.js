@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/api/decks", deckController.getAll);
 
 //get all decks from a user
-router.get("/api/decks/users/:userId", deckController.getUserDecks);
+router.get("/api/decks/users/:userId", deckController.getAllFromUser);
 
 // //get a deck
 router.get("/api/decks/:deckId", deckController.get);

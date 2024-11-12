@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/api/collabs/:deckId", collaboratorController.getAll);
 
 // get collabs of a user 
-router.get("/api/collabs/users/:userId", collaboratorController.getCollaborations);
+router.get("/api/collabs/users/:userId", collaboratorController.getAllFromUser);
 
 router.post("/api/collabs/:deckId", collaboratorController.create);
 router.put("/api/user/:userId/collabs/:deckId", collaboratorController.update);

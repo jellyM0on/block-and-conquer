@@ -1,17 +1,13 @@
 import { Collaborator } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
-import { Base } from "./baseController.js";
+import { BaseController } from "./baseController.js";
+import { BaseService } from "../services/baseService.js";
 
-class CollaboratorController extends Base {
-
-    getCollaborations = asyncHandler(async(req, res) => {
-        const { userId } = req.params;
-        const collaborations = await this.model.findAll({
-            where: ({
-                userId: userId
-            })
-        }); 
-        res.status(200).json(collaborations); 
+class CollaboratorController extends BaseController {
+  
+    getAllFromUser = asyncHandler(async(req, res) => {
+        const data = await BaseService.getAll(this.model, ({ userId: req.params.userId })); 
+        return res.status(200).json(data); 
     });
 
 }

@@ -1,52 +1,37 @@
 import asyncHandler from "../utils/asyncHandler.js";
+import { BaseService } from "../services/baseService.js";
 
-class Base {
+
+class BaseController {
     constructor(model, constraints){
         this.model = model; 
         this.constraints = constraints; 
     }
 
     get = asyncHandler(async(req,res, next) => {
-        const constraint = this.constraints.get ? this.constraints.get(req) : {};
-        const data = await this.model.findOne({
-            where: constraint
-        });
+        const data = await BaseService.getOne(this.model, this.constraints.get(req)); 
         return res.status(200).json(data)
-   
     })
 
     getAll = asyncHandler(async(req,res, next) => {
-        const constraint = this.constraints.getAll ? this.constraints.getAll(req) : {};
-        const data = await this.model.findAll({
-            where: constraint
-        })
+        const data = await BaseService.getAll(this.model, this.constraints.getAll(req));
         return res.status(200).json(data)
     })
 
     create = asyncHandler(async(req,res, next) => {
-        const { data } = req.body; 
-        const model = this.model.build(data); 
-        model.validate(); 
-        await model.save();
-        res.status(200).json(model);
+        const data = await BaseService.createOne(this.model, req.body);
+        res.status(200).json(data);
     })
 
     update = asyncHandler(async(req,res, next) => {
-        const constraint = this.constraints.update ? this.constraints.update(req) : {};
-        const updatedFields = req.body; 
-        const model = await this.model.update(updatedFields,  {
-            where: constraint
-        });
-        res.status(200).json(model);
+        const data = await BaseService.updateOne(this.model, this.constraints.update(req), req.body);
+        res.status(200).json(data);
     })
 
     delete = asyncHandler(async(req,res, next) => {
-        const constraint = this.constraints.delete ? this.constraints.delete(req) : {};
-        await this.model.destroy({
-            where: constraint
-        });
-        res.status(200);
+        const data = await BaseService.deleteOne(this.model, this.constraints.delete(req));
+        res.status(200).json(data);
     })
 }
 
-export { Base }
+export { BaseController }

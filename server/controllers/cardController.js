@@ -1,9 +1,9 @@
 import { Card } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
-import { Base } from "./baseController.js";
+import { BaseController } from "./baseController.js";
 
 
-class CardController extends Base {
+class CardController extends BaseController {
 
 }
 
