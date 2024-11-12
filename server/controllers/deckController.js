@@ -1,19 +1,18 @@
-import { Deck } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { BaseController } from "./baseController.js"
-import { BaseService } from "../services/baseService.js";
-import { DeckService } from "../services/deckService.js";
+import { deckService } from "../services/deckService.js";
 
 
 class DeckController extends BaseController {
 
     getAllFromUser = asyncHandler(async(req, res) => {
-        const data = await BaseService.getAll(this.model, ({ userId: req.params.userId })); 
+        const data = await this.service.getAll(({ userId: req.params.userId })); 
         return res.status(200).json(data); 
     }); 
 
     getWithComments = asyncHandler(async(req, res) => {
-        const data = await DeckService.getOneWithComments(({id: req.params.deckId})); 
+        
+        const data = await this.service.getOneWithComments(({id: req.params.deckId})); 
         return res.status(200).json(data); 
     })
 }
@@ -25,6 +24,6 @@ const constraints = {
     delete: (req) => ({ id: req.params.deckId})
 }
 
-const deckController = new DeckController(Deck, constraints); 
+const deckController = new DeckController(deckService, constraints); 
 
 export { deckController }

@@ -1,9 +1,10 @@
 import { Deck } from "../models/index.js";
 import { DeckComment } from "../models/index.js";
+import { BaseService } from "./baseService.js";
 
-class DeckService {
+class DeckService extends BaseService {
 
-    static async getOneWithComments(constraint){
+    async getOneWithComments(constraint){
         const data = await Deck.findOne({
             where: constraint ,
             include: [{ model: DeckComment, as: 'comments'}]
@@ -14,4 +15,6 @@ class DeckService {
     
 }
 
-export { DeckService }
+const deckService = new DeckService(Deck); 
+
+export { deckService }

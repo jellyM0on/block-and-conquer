@@ -1,37 +1,40 @@
 
 class BaseService {
+    constructor(model){
+        this.model = model; 
+    }
 
-    static async getOne(model, constraint){
-        const data = await model.findOne({
+    async getOne(constraint){
+        const data = await this.model.findOne({
             where: constraint
         });
         return data; 
     }
 
-    static async getAll(model, constraint){
-        const data = await model.findAll({
+    async getAll(constraint){
+        const data = await this.model.findAll({
             where: constraint
         })
         return data; 
     }
 
-    static async createOne(model, data){
-        const newData = model.build(data); 
+    async createOne(data){
+        const newData = this.model.build(data); 
         newData.validate(); 
         await newData.save();
         return newData; 
     }
 
-    static async updateOne(model, constraint, data){
+    async updateOne(constraint, data){
         const updatedFields = data; 
-        const updatedData = await model.update(updatedFields,  {
+        const updatedData = await this.model.update(updatedFields,  {
             where: constraint
         });
         return updatedData; 
     }
 
-    static async deleteOne(model, constraint){
-        const data = await model.destroy({
+    async deleteOne(constraint){
+        const data = await this.model.destroy({
             where: constraint
         });
         return "Deleted";  

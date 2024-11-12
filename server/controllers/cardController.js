@@ -1,6 +1,6 @@
-import { Card } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { BaseController } from "./baseController.js";
+import { cardService } from "../services/collaboratorService.js";
 
 
 class CardController extends BaseController {
@@ -14,6 +14,6 @@ const constraints = {
     delete: (req) => ({ id: req.params.cardId, deckId: req.params.deckId })
 }
 
-const cardController = new CardController(Card, constraints); 
+const cardController = new CardController(cardService, constraints); 
 
 export { cardController }

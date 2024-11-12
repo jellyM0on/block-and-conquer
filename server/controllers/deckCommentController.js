@@ -1,6 +1,6 @@
-import { DeckComment } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { BaseController } from "./baseController.js";
+import { deckCommentService } from "../services/deckCommentService.js";
 
 
 class DeckCommentController extends BaseController {
@@ -14,6 +14,6 @@ const constraints = {
     delete: (req) => ({ })
 }
 
-const deckCommentController  = new DeckCommentController(DeckComment, constraints); 
+const deckCommentController  = new DeckCommentController(deckCommentService, constraints); 
 
 export { deckCommentController }

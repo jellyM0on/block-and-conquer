@@ -1,12 +1,11 @@
-import { Collaborator } from "../models/index.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { BaseController } from "./baseController.js";
-import { BaseService } from "../services/baseService.js";
+import { collaboratorService } from "../services/cardService.js";
 
 class CollaboratorController extends BaseController {
   
     getAllFromUser = asyncHandler(async(req, res) => {
-        const data = await BaseService.getAll(this.model, ({ userId: req.params.userId })); 
+        const data = await this.service.getAll(this.model, ({ userId: req.params.userId })); 
         return res.status(200).json(data); 
     });
 
@@ -19,6 +18,6 @@ const constraints = {
     delete: (req) => ({ deckId: req.params.deckId, userId: req.params.userId })
 }
 
-const collaboratorController = new CollaboratorController(Collaborator, constraints);
+const collaboratorController = new CollaboratorController(collaboratorService, constraints);
 
 export { collaboratorController }
