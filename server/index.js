@@ -3,7 +3,6 @@ import cors from "cors";
 import { sequelize } from "./config/database.js";
 import passport from "passport";
 import session from "express-session"; 
-import "./middlewares/auth-google.js";
 import routes from "./routes/index.js"
 
 const app = express();
@@ -34,9 +33,5 @@ app.use(routes);
 
 // test route to verify 
 app.get('/', (req, res) => {
-    if(req.isAuthenticated()){
-        res.send(`Hello HANS!`); 
-    } else {
-        res.send('You are not logged in.');
-    }
+    res.send(`Hello HANS!`); 
 })
