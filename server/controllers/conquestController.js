@@ -5,6 +5,12 @@ import { conquestService } from "../services/conquestService.js";
 
 class ConquestController extends BaseController {
 
+    getAllWithProgs = asyncHandler(async(req, res) => {
+        
+        const data = await this.service.getAllWithProgs(({id: req.params.userId})); 
+        return res.status(200).json(data); 
+
+    }); 
 }
 
 const constraints = {

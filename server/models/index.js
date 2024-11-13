@@ -5,6 +5,7 @@ import { CardModel as Card } from "./CardModel.js";
 import { CollaboratorModel as Collaborator} from "./CollaboratorModel.js";
 import { DeckCommentsModel as DeckComment } from "./DeckCommentsModel.js";
 import { ConquestModel as Conquest } from "./ConquestModel.js";
+import { ConquestProgModel as ConquestProg } from "./ConquestProgModel.js";
 
 //define relationships 
 
@@ -20,6 +21,9 @@ User.belongsToMany(Deck, { through: "Collaborators" });
 Deck.hasMany(DeckComment, {foreignKey: "deckId", as: "comments"}); 
 DeckComment.belongsTo(Deck, {foreignKey: "deckId", as: "deck"}); 
 
+User.belongsToMany(Conquest, { through: "ConquestProgs", foreignKey: "userId", otherKey: "conquestId"}); 
+Conquest.belongsToMany(User, { through: "ConquestProgs", foreignKey: "conquestId", otherKey: "userId"}); 
 
-export { User, Deck, Card, Collaborator, DeckComment, Conquest }
+
+export { User, Deck, Card, Collaborator, DeckComment, Conquest, ConquestProg }
 
