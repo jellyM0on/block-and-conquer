@@ -1,6 +1,6 @@
 import asyncHandler from "../utils/asyncHandler.js";
 import { BaseController } from "./baseController.js";
-import { collaboratorService } from "../services/cardService.js";
+import { collaboratorService } from "../services/collaboratorService.js";
 
 class CollaboratorController extends BaseController {
   
