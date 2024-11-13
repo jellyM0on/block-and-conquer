@@ -19,3 +19,7 @@ try{
 
 app.use(routes); 
 
+// test route to verify 
+app.get('/', (req, res) => {
+    res.send(`Hello HANS!`); 
+})
