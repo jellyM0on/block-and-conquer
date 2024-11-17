@@ -1,10 +1,10 @@
-import { Card } from "../models/index.js";
+import { Collaborator } from "../models/index.js";
 import { BaseService } from "./baseService.js";
 
-class CardService extends BaseService {
+class CollaboratorService extends BaseService {
     
 }
 
-const  cardService = new CardService(Card); 
+const  collaboratorService = new CollaboratorService(Collaborator); 
 
-export { cardService }
+export { collaboratorService }
