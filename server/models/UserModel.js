@@ -26,7 +26,7 @@ const UserModel = sequelize.define("User", {
     interests: {
         type: dt.ARRAY(dt.STRING),
     },
-    avatarId: {
+    avatarID: {
         type: dt.INTEGER,
         defaultValue: 0
     },

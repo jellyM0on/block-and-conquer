@@ -5,22 +5,22 @@ import { UserModel } from "./UserModel.js";
 const FriendsModel = sequelize.define("Friends", {
     userId_1: {
         type: dt.INTEGER,
-        allowNull: false,
+        primaryKey: true,
         references: {
             model: UserModel,
-            key: "userId",
+            key: "id",
         }
     },
     userId_2: {
         type: dt.INTEGER,
-        allowNull: false,
+        primaryKey: true,
         references: {
             model: UserModel,
-            key: "userId",
+            key: "id",
         }
     },
     status: {
-        type: dt.INTEGER,
+        type: dt.STRING,
         validate: {
             isIn: [["Accepted", "Pending"]]
         }

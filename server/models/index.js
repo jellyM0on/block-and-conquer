@@ -25,17 +25,14 @@ User.belongsToMany(Deck, { through: "Collaborators" });
 Deck.hasMany(DeckComment, {foreignKey: "deckId", as: "comments"}); 
 DeckComment.belongsTo(Deck, {foreignKey: "deckId", as: "deck"}); 
 
-User.hasMany(ReviewHistory, {foreignKey: "userId", as: "reviewhistory"});
+User.hasMany(ReviewHistory, {foreignKey: "userId", as: "reviewHistory"});
 ReviewHistory.belongsTo(User, {foreignKey: "userId", as: "user"});
 
 User.hasMany(Sites, {foreignKey: "userId", as: "sites"});
 Sites.belongsTo(User, {foreignKey: "userId", as: "user"}); 
 
-User.hasMany(Friends, {foreignKey: "userId_1", as: "addedFriends"});
-Friends.belongsTo(User, {foreignKey: "userId_1", as: "userAdded"});
-
-User.hasMany(Friends, {foreignKey: "userId_2", as: "acceptedFriends"});
-Friends.belongsTo(User, {foreignKey: "userId_2", as: "userAccepted"});
+User.belongsToMany(User, { through: User, as: 'Parents', foreignKey: 'parentId' });
+User.belongsToMany(User, { through: User, as: 'Siblings', foreignKey: 'siblingId' });
 
 ProfileItems.hasMany(User, {foreignKey: "avatarId", as: "userAvatar"});
 User.belongsTo(ProfileItems, {foreignKey: "avatarId", as: "avatar" });
