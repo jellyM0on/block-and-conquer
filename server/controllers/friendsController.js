@@ -26,7 +26,7 @@ class FriendsController extends BaseController {
 }
 
 const constraints = {
-    create: (req) => ({ userId_1: req.params.userId, userId_2: req.params.friendId }),
+    create: (req) => ({ userId_1: req.params.userId, userId_2: req.params.friendId}),
     get: (req) => (
         { userId_1: req.params.userId, userId_2: req.params.friendId },
         { userId_1: req.params.friendId, userId_2: req.params.userId }

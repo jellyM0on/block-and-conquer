@@ -5,9 +5,11 @@ class BaseService {
     }
 
     async getOne(constraint){
+        console.log(constraint)
         const data = await this.model.findOne({
             where: constraint
         });
+        console.log("After await")
         return data; 
     }
 

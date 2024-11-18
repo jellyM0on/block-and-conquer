@@ -8,7 +8,8 @@ class BaseController {
     }
 
     get = asyncHandler(async(req,res, next) => {
-        const data = await this.service.getOne(this.constraints.get(req)); 
+        console.log("controller")
+        const data = await this.service.getOne(this.constraints.get(req));
         return res.status(200).json(data)
     })
 
