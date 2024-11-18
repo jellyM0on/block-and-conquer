@@ -43,5 +43,8 @@ User.belongsTo(ProfileItems, {foreignKey: "avatarId", as: "avatar" });
 User.hasMany(ToDoList, {foreignKey: "userId", as: "ToDoListItem"});
 ToDoList.belongsTo(User, {foreignKey: "userId", as: "user"});
 
-export { User, Deck, Card, Collaborator, DeckComment }
+export { 
+        User, Deck, Card, Collaborator, DeckComment, ReviewHistory, 
+        Sites, Friends, ProfileItems, ToDoList 
+    }
 
