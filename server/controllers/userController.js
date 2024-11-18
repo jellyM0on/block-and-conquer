@@ -7,10 +7,10 @@ class UserController extends BaseController {
 }
 
 const constraints = {
-    create: (req) => ({  }),
-    get: (req) => ({ id: req.params.id }),
-    update: (req) => ({ id: req.params.id, points: req.body }),
-    delete: (req) => ({ id: req.params.id })
+    create: (req) => ({ details: req.body }),
+    get: (req) => ({ id: req.params.userId }),
+    update: (req) => ({ id: req.params.userId, points: req.body }),
+    delete: (req) => ({ id: req.params.userId })
 }
 
 const userController = new UserController(userService, constraints);
