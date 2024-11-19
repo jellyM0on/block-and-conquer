@@ -5,6 +5,6 @@ class TodoListService extends BaseService {
 
 }
 
-const todoListService = new ProfileItemsService(ToDoList);
+const todoListService = new TodoListService(ToDoList);
 
 export { todoListService }

@@ -2,17 +2,19 @@ import asyncHandler from "../utils/asyncHandler.js";
 import { BaseController } from "./baseController.js";
 import { todoListService } from "../services/todoListService.js";
 
+var tempUserId = '1';
+
 class TodoListController extends BaseController {
 
 }
 
 const constraints = {
-    create: (req) => ({ data: req.body }),
-    getAll: (req) => ({ id: req.params.userId, }),
-    update: (req) => ({ id: req.params.listItemId, data: req.body }),
-    delete: (req) => ({ id: req.params.listItemId, data: req.body })
+    create: (req) => ({ userId: req.params.userId }),
+    getAll: (req) => ({ userId: req.params.userId }),
+    update: (req) => ({ userId: req.params.userId, listItemId: req.params.todoId }),
+    delete: (req) => ({ userId: req.params.userId, listItemId: req.params.todoId })
 }
 
-const userController = new UserController(userService, constraints);
+const todoListController = new TodoListController(todoListService, constraints);
 
-export { userController }
+export { todoListController }

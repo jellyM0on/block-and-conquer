@@ -18,6 +18,7 @@ class BaseController {
     })
 
     create = asyncHandler(async(req,res, next) => {
+        console.log(req.body);
         const data = await this.service.createOne(req.body);
         res.status(200).json(data);
     })
