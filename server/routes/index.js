@@ -8,6 +8,7 @@ import deckCommentRouter from "./deckComments.js";
 import userRouter from "./user.js";
 import friendsRouter from "./friends.js";
 import todoRouter from "./todolist.js";
+import sitesRouter from "./sites.js";
 
 const router = Router(); 
 
@@ -20,5 +21,6 @@ router.use(deckCommentRouter);
 router.use(userRouter);
 router.use(friendsRouter);
 router.use(todoRouter);
+router.use(sitesRouter);
 
 export default router; 

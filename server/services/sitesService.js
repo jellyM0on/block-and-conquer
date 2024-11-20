@@ -5,6 +5,6 @@ class SitesService extends BaseService {
 
 }
 
-const sitesService = new ProfileItemsService(Sites);
+const sitesService = new SitesService(Sites);
 
 export { sitesService }
