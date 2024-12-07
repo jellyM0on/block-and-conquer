@@ -1,0 +1,136 @@
+.testimonials-header h1 {
+    font-family: RalewaySemiBold;
+    font-size: 48px;
+    color: #222222;
+    display: inline-flex; 
+    align-items: center;
+    margin-top: 40px;
+
+  }
+  
+.second-line{
+    margin-top: -50px;
+}
+
+@font-face{
+    font-family: QanelasBlack;
+    src: url(../public/QanelasBlack.otf)
+}
+
+.block {
+    font-family: QanelasBlack;
+    color: #222222;
+}
+  
+  .conquer {
+    font-family: QanelasBlack;
+    color: #FF5733;
+}
+  
+  
+.testimonials-container {
+    width: 100%;
+    position: relative;
+    margin-top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+  
+.testimonials-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+  
+.testimonials-label {
+    width: 160px;
+    height: 50px;
+    align-content: center;
+    border: 1px solid #D1D1D1;
+    border-radius: 40px;
+    font-family: QanelasSemiBold;
+    font-size: 18px;
+    color: #5A5959;
+    box-shadow: 0px 8px 36.7px -9px rgba(0, 0, 0, 0.25);
+}
+  
+.testimonials-wrapper {
+    width: 100%;
+    margin-top: 40px;
+    overflow: hidden;
+    position: relative;
+}
+  
+@keyframes scrollScale {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 40px;  
+    animation: scrollScale 30s linear infinite;
+    width: calc(100% * 2); 
+    position: relative;
+}
+
+  
+.testimonials-card {
+    width: 385px;
+    flex-shrink: 0;
+    height: 440px;
+    background: #F5F4F1;
+    border: 1px solid #939291;
+    border-radius: 40px;
+    overflow: hidden;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+  
+.testimonials-card:hover {
+    background: #ffffff;
+    border: 0px solid #939291;
+    box-shadow: 0px 17px 63.6px -11.968px rgba(0, 0, 0, 0.22);
+    transform: scale(1.01);
+}
+  
+.testimonials-card p {
+    font-family: RalewaySemiBold;
+    font-size: 20px;
+    color: #5A5959;
+}
+  
+.profile-section {
+    display: flex;
+    margin-bottom: -10px;
+}
+  
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+}
+  
+.profile-text h4 {
+    font-family: QanelasSemiBold;
+    font-size: 24px;
+    color: #292929;
+}
+  
+.profile-text p {
+    font-family: QanelasSemiBold;
+    font-size: 17px;
+    color: #5A5959;
+}

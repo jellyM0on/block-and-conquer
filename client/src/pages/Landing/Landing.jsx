@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import HeroSection from '../../components/HeroSection/HeroSection'
 import FeaturesIntro from '../../components/FeaturesIntro/FeaturesIntro'
 import FeatureDetails from '../../components/FeatureDetails/FeatureDetails'
+import Testimonials from '../../components/Testimonials/Testimonials'
 
 function Landing() {
   return (
@@ -12,6 +13,7 @@ function Landing() {
         <HeroSection/>
         <FeaturesIntro/>
         <FeatureDetails/>
+        <Testimonials/>
     </div>
   )
 }
