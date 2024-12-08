@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Raleway";
+  src: url("./Raleway/Raleway-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("./Raleway/Raleway-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("./Qanelas/QanelasBold.otf") format("opentype");
+  font-weight: 700; /* Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("./Qanelas/QanelasSemiBold.otf") format("opentype");
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("./Qanelas/QanelasMedium.otf") format("opentype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
