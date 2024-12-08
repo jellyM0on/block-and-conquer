@@ -4,7 +4,7 @@ import "./Login.css";
 import close from "../assets/close-btn-icon.svg";
 import google from "../assets/google-icon.svg";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-// import Modal from "../components/Modal/Modal"; // Ensure you have the Modal component
+import Modal from "../components/Modal/Modal";
 
 function Login() {
   // State management
