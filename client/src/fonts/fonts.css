@@ -32,3 +32,10 @@
   font-weight: 500; /* Medium */
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("./Qanelas/QanelasRegular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
