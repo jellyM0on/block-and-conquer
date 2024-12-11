@@ -82,6 +82,7 @@ a {
   text-align: center;
   font-family: "QanelasMedium";
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .signup-btn-login:hover,
@@ -182,6 +183,7 @@ input:focus::placeholder {
   width: 190px;
   height: 70px;
   font-family: "QanelasBold";
+  transition: background-color 0.3s ease;
 }
 
 .forgot-password {
