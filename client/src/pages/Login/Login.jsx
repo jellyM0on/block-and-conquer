@@ -21,6 +21,12 @@ function Login() {
   // Password visibility toggle
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
+  // Open modal
+  const openModal = () => setShowModal(true);
+
+  // Navigation
+  const navigate = useNavigate();
+
   // Handle login form submission
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -36,7 +42,7 @@ function Login() {
     } else if (!validPassword) {
       setErrorMessage("Password must be at least 12 characters long.");
     } else {
-      const url = ""; //API
+      const url = ""; // API
       try {
         const response = await fetch(url, {
           method: "POST",
@@ -65,12 +71,6 @@ function Login() {
     }
   };
 
-  // Open modal
-  const openModal = () => setShowModal(true);
-
-  // Navigation
-  const navigate = useNavigate();
-
   return (
     <div className="login-container">
       <div className="header">
@@ -80,7 +80,7 @@ function Login() {
           className="close-btn"
           onClick={() => navigate("/landing-page")}
         />
-        <h2 className="login-heading">Log In</h2>
+        <h2 className="signup-heading">Log In</h2>
         <button
           className="signup-btn-login"
           onClick={() => navigate("/signup")}

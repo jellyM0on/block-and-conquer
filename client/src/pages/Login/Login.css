@@ -175,7 +175,6 @@ input:focus::placeholder {
   color: #fff;
   border: none;
   border-radius: 12px;
-  padding: 24px 64px;
   cursor: pointer;
   margin-top: 20px;
   font-size: 18px;
