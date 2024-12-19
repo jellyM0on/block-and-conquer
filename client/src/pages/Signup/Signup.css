@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: QanelasBold;
+  src: url(../../fonts/Qanelas/QanelasBold.otf);
+}
+
+@font-face {
+  font-family: QanelasSemiBold;
+  src: url(../../fonts/Qanelas/QanelasSemiBold.otf);
+}
+
+@font-face {
+  font-family: QanelasMedium;
+  src: url(../../fonts/Qanelas/QanelasMedium.otf);
+}
+
+@font-face {
+  font-family: QanelasRegular;
+  src: url(../../fonts/Qanelas/QanelasRegular.otf);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: #fdeae5;
+  color: #333;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+a {
+  font-family: "QanelasSemiBold";
+}
+
+.signup-container {
+  text-align: center;
+  width: 100%;
+}
+
+.header-signup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0 80px 0;
+}
+
+.close-btn {
+  cursor: pointer;
+  width: 40px;
+}
+
+.signup-heading {
+  display: flex;
+  font-family: "QanelasBold";
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-left: 50px;
+}
+
+.login-btn-signup {
+  background-color: #ff4400;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-family: "QanelasMedium";
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn-signup:hover {
+  background-color: #d83c03;
+}
+
+.google-btn-signup {
+  background-color: white;
+  border: 1px solid #b3b3b3;
+  border-radius: 12px;
+  font-family: "QanelasMedium";
+  font-size: 18px;
+  padding: 10px 40px;
+  cursor: pointer;
+}
+
+.google-btn-signup:hover {
+  border: 1px solid #ff4400;
+}
+
+.google-btn-signup img {
+  margin-right: 20px;
+  width: 25px;
+  height: auto;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 32px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  width: 544px;
+  flex: 1;
+  height: 1px;
+  background: #292929;
+}
+
+.or-divider {
+  padding: 0 50px;
+  font-family: "QanelasBold";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.signup-btn-signup {
+  background-color: #ff4400;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 18px;
+  width: 190px;
+  height: 70px;
+  font-family: "QanelasBold";
+  transition: background-color 0.3s ease;
+}
