@@ -22,7 +22,7 @@ function Login() {
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   // Handle login form submission
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     setErrorMessage("");
 
@@ -36,8 +36,32 @@ function Login() {
     } else if (!validPassword) {
       setErrorMessage("Password must be at least 12 characters long.");
     } else {
-      console.log("Email: ", email);
-      console.log("Password: ", password);
+      const url = ""; //API
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+
+        const json = await response.json();
+        console.log(json);
+
+        if (json.success) {
+          navigate("/"); // Navigate to Dashboard
+        } else {
+          setErrorMessage(json.message || "Invalid credentials. Try again.");
+        }
+      } catch (error) {
+        console.error("Error during login:", error.message);
+        setErrorMessage("An error occured. Please try again");
+      }
     }
   };
 
