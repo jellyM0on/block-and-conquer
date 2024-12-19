@@ -144,3 +144,31 @@ a {
   font-family: "QanelasBold";
   transition: background-color 0.3s ease;
 }
+
+.terms-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 32px;
+  max-width: 540px;
+  font-family: "QanelasRegular";
+  text-align: center;
+}
+
+.terms-link {
+  color: #292929;
+}
+
+.error-message {
+  font-family: "QanelasRegular";
+  font-size: 12px;
+  font-weight: 400;
+}
