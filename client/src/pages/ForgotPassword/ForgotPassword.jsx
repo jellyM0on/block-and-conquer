@@ -60,7 +60,7 @@ function ForgotPassword() {
           src={close}
           alt="close"
           className="close-btn-fp"
-          onClick={() => navigate("/landing-page")}
+          onClick={() => navigate("/login")}
         />
         <h2 className="fp-heading">Reset Password</h2>
       </div>
