@@ -1,16 +1,14 @@
 class CreateFlashcardDecks < ActiveRecord::Migration[8.0]
   def change
     create_table :flashcard_decks do |t|
-      t.integer :user_id, null: false
+      t.references :user, null: false, foreign_key: { to_table: :users, column: :user_id }
+
       t.string :name, null: false
       t.text :description, null: false 
-      t.json :tags
-      t.string :progress
       t.integer :type, null: false 
-      t.string :subject, null: false 
-      t.integer :published_status, null: false 
-      t.timestamp :last_reviewed
+      t.integer :subject, null: false 
       t.integer :privacy_status, null: false 
+      t.json :tags
       t.integer :last_edited_by 
       t.integer :views 
 
