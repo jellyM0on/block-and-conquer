@@ -75,6 +75,27 @@ function Interest() {
       <div className="topic-list">
         <h3 className="interest-instructions">Select Interests</h3>
         <div className="topic-grid-list"></div>
+        {topics.map((interest) => (
+          <button
+            key={interest}
+            className={`interest-item ${
+              selectedInterests.includes(interest) ? "selected" : ""
+            }`}
+            onClick={() => handleToggleInterest(interest)}
+          >
+            {interest}
+          </button>
+        ))}
+      </div>
+
+      <div className="save-btn-container">
+        <button
+          className="save-interest-btn"
+          onClick={handleSubmit}
+          disabled={selectedInterests.length === 0}
+        >
+          Save and Continue
+        </button>
       </div>
     </div>
   );
