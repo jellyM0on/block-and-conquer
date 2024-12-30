@@ -19,6 +19,7 @@ function Interest() {
     "Literature",
     "History",
     "Geography",
+    "Chemistry",
     "Home Economics",
     "Ethics",
     "Physics",
@@ -38,6 +39,8 @@ function Interest() {
 
   // Handle interest submission
   const handleSubmit = async () => {
+    console.log("Selected Interests:", selectedInterests); // Remove this once the URL is ready
+    navigate("/avatar"); // Remove this once the URL is ready
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -53,7 +56,7 @@ function Interest() {
 
       const result = await response.json();
       console.log("Interests saved:", result);
-      navigate("/next-page");
+      navigate("/avatar");
     } catch (err) {
       console.error("Error saving interests:", err.message);
     }
@@ -72,9 +75,8 @@ function Interest() {
         <h2 className="interest-heading">Set Up Your Profile</h2>
       </div>
 
+      <h3 className="interest-instructions">Select Interests</h3>
       <div className="topic-list">
-        <h3 className="interest-instructions">Select Interests</h3>
-        <div className="topic-grid-list"></div>
         {topics.map((interest) => (
           <button
             key={interest}
