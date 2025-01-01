@@ -1,0 +1,17 @@
+/* Sidebar Container */
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.brand {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
