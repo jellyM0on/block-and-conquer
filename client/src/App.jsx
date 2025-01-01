@@ -5,6 +5,8 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import NewPassword from "./pages/NewPassword/NewPassword";
 import Interest from "./pages/Interest/Interest";
 import Avatar from "./pages/Avatar/Avatar";
+import Test from "./pages/Test";
+import Test2 from "./pages/Test2";
 
 import "./App.css";
 
@@ -18,6 +20,8 @@ function App() {
         <Route path="/new-password" element={<NewPassword />} />
         <Route path="/interest" element={<Interest />} />
         <Route path="/avatar" element={<Avatar />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/test2" element={<Test2 />} />
       </Routes>
     </Router>
   );
