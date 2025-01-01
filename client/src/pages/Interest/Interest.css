@@ -39,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  padding: 18px;
 }
 
 a {
@@ -118,7 +118,7 @@ a {
   color: #fff;
 }
 
-.save-btn-container {
+.save-btn-container-interest {
   margin-top: 80px;
   width: 100%;
   display: flex;

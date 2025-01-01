@@ -43,6 +43,7 @@ function Interest() {
     navigate("/avatar"); // Remove this once the URL is ready
     try {
       const response = await fetch(url, {
+        // Put the actual URL
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +91,7 @@ function Interest() {
         ))}
       </div>
 
-      <div className="save-btn-container">
+      <div className="save-btn-container-interest">
         <button
           className="save-interest-btn"
           onClick={handleSubmit}
