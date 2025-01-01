@@ -71,9 +71,7 @@ h5 {
   padding: 8px 16px;
   margin: 5px 16px;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
+  gap: 10px;
   font-size: 12px;
   font-family: "QanelassemiBold";
   text-decoration: none;
@@ -97,6 +95,14 @@ h5 {
 
 .menu-item.active:hover {
   border: 1px solid transparent;
+}
+
+.menu-item img {
+  height: 18px;
+}
+
+.menu-item.active img {
+  filter: brightness(0) invert(1);
 }
 
 .sidebar-main,
