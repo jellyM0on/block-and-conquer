@@ -7,16 +7,16 @@ const Sidebar = () => {
     <div className="sidebar-container">
       <div className="brand">
         <h3 className="appname">
-          Block&<span>Conquer</span>
+          Block&<span className="conquer">Conquer</span>
         </h3>
         <p className="tagline">Focus, Learn, Achieve</p>
       </div>
       <div className="sidebar-main">
         <h5>MAIN</h5>
-        <NavLink to="/dashboard" className="menu-item">
+        <NavLink to="/test" className="menu-item">
           Dashboard
         </NavLink>
-        <NavLink to="/flashcards" className="menu-item">
+        <NavLink to="/test2" className="menu-item">
           Flashcards
         </NavLink>
         <NavLink to="/leaderboard" className="menu-item">
