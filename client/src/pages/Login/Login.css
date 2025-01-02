@@ -137,7 +137,7 @@ a {
   margin-bottom: 8px;
 }
 
-input {
+.input-field {
   box-sizing: border-box;
   background-color: #292929;
   border: none;
@@ -149,12 +149,12 @@ input {
   padding-left: 20px;
 }
 
-input::placeholder {
+.input-field::placeholder {
   color: white;
   font-family: "QanelasMedium";
 }
 
-input:focus::placeholder {
+.input-field:focus::placeholder {
   opacity: 0.5;
   font-family: "QanelasMedium";
 }
