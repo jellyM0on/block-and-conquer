@@ -7,7 +7,7 @@ class CreateDailyReviews < ActiveRecord::Migration[8.0]
       t.integer :points, null: false
       t.integer :tokens, null: false
       t.integer :breaks, null: false
-      t.time :time, null: false
+      t.integer :time, null: false
       
       t.timestamps
     end

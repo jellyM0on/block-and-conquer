@@ -19,4 +19,31 @@ class User < ApplicationRecord
   validates :uid, :name, :email, :provider, presence: true 
   validates :name, length: { in: 1..200 }
 
+  def pomodoro_statistics 
+    monthly_reviews =  daily_reviews.select(:time, :created_at).group_by { |dr| dr.created_at.strftime("%m-%Y") }.as_json(except: :id)
+    
+    {
+      monthly_reviews: monthly_reviews,
+      total_sessions: daily_reviews.sum(:sessions),
+      total_breaks: daily_reviews.sum(:breaks),
+      total_hours: (daily_reviews.sum(:time)/3600),
+      current_breaks: daily_reviews.last&.breaks || 0, 
+      current_sessions: daily_reviews.last&.sessions || 0, 
+      current_hours: (daily_reviews.last&.time)/3600 || 0
+    }
+  end
+
+  # formatting
+  def format_settings_pomodoro_time
+    settings_pomodoro_time.strftime("%H:%M")
+  end
+
+  def format_settings_pomodoro_break
+    settings_pomodoro_break.strftime("%H:%M")
+  end
+
+  def format_settings_reminder_time
+    settings_reminder_time.strftime("%H:%M")
+  end
+
 end

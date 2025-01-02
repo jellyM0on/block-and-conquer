@@ -35,7 +35,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_165149) do
     t.integer "points", null: false
     t.integer "tokens", null: false
     t.integer "breaks", null: false
-    t.time "time", null: false
+    t.integer "time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_daily_reviews_on_user_id"

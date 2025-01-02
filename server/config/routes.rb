@@ -10,4 +10,14 @@ Rails.application.routes.draw do
   # 
   get 'test/index', to: 'test#index'
   post 'auth/sign_up', to: 'auth#sign_up'
+
+  scope :api do
+    resources :users do 
+      member do 
+        get :show_daily_reviews, path: "pomodoro_reviews"
+        put :update_pomodoro_settings, path: "pomodoro_settings"
+      end
+    end
+  end
+
 end
