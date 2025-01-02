@@ -1,0 +1,51 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.612);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.modal-dialog {
+  max-width: 80%;
+}
+
+.modal-content {
+  border-radius: 8px;
+}
+
+.date-updated {
+  display: flex;
+  align-items: start;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.modal-body.scrollable-body {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.modal-body p,
+.modal-body ol {
+  text-align: justify;
+}
+
+ol {
+  margin-right: 20px;
+}
+
+li {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+p {
+  font-size: 12px;
+}
