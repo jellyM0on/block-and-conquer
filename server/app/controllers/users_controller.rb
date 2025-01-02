@@ -4,13 +4,14 @@ class UsersController < ApplicationController
   before_action :validate_pomodoro_settings_params, only: [ :update_pomodoro_settings ]
 
   def show_daily_reviews 
-    user = User.find(params[:id])
+    data = User.with_daily_reviews(params[:id])
+
+    render json: {
+      user: ActiveModelSerializers::SerializableResource.new(data[:user], serializer: UserDailyReviewSerializer),
+      monthly_reviews: data[:monthly_reviews], 
+      current_reviews: data[:current_reviews]
+    }, status: :ok
     
-    if user 
-      render json: user, serializer: UserDailyReviewSerializer, status: :ok
-    else 
-      render json: { errors: user.errors }, status: :bad_request
-    end
   end
 
   def update_pomodoro_settings

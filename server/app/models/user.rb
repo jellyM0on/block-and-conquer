@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  # associations
   has_many :user_profile_items, dependent: :destroy
   has_many :todo_list_items, dependent: :destroy
   has_many :flashcard_decks, dependent: :destroy
@@ -15,26 +16,37 @@ class User < ApplicationRecord
 
   has_many :flashcard_deck_comments, dependent: :destroy
 
+  # enums 
   enum :settings_reminder_mode, { disabled: 0, enabled: 1 }
 
+  # validations
   validates :uid, :name, :email, :provider, presence: true 
   validates :name, length: { in: 1..200 }
 
-  def pomodoro_statistics 
-    monthly_reviews =  daily_reviews.select(:time, :created_at).group_by { |dr| dr.created_at.strftime("%m-%Y") }.as_json(except: :id)
-    
+  # methods 
+  def self.with_daily_reviews(user_id)
+    user = User.find(user_id)
+    monthly_reviews =  user.daily_reviews.select(:time, :created_at).group_by { |dr| dr.created_at.strftime("%m-%Y") }.as_json(except: :id)
+    current_daily_review = user.daily_reviews.where(created_at: Date.today.all_day).order(created_at: :desc).limit(1).first
+
+    current_reviews = {
+      current_breaks: current_daily_review&.breaks || 0, 
+      current_sessions: current_daily_review&.sessions || 0, 
+      current_hours: (current_daily_review&.time)/3600 || 0
+    }
+
     {
+      user: user, 
       monthly_reviews: monthly_reviews,
-      total_sessions: daily_reviews.sum(:sessions),
-      total_breaks: daily_reviews.sum(:breaks),
-      total_hours: (daily_reviews.sum(:time)/3600),
-      current_breaks: daily_reviews.last&.breaks || 0, 
-      current_sessions: daily_reviews.last&.sessions || 0, 
-      current_hours: (daily_reviews.last&.time)/3600 || 0
+      current_reviews: current_reviews 
     }
   end
 
   # formatting
+  def format_total_time
+    total_time/3600
+  end
+
   def format_settings_pomodoro_time
     settings_pomodoro_time.strftime("%H:%M")
   end

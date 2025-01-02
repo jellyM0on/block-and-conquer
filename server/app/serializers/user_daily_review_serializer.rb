@@ -5,10 +5,12 @@ class UserDailyReviewSerializer < ActiveModel::Serializer
   :settings_alarm_sound, 
   :settings_reminder_mode, 
   :settings_reminder_time,
-  :pomodoro_statistics
+  :total_breaks, 
+  :total_sessions, 
+  :total_time
 
-  def pomodoro_statistics
-    object.pomodoro_statistics
+  def total_time
+    object.format_total_time
   end
 
   def settings_pomodoro_time

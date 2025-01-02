@@ -17,6 +17,11 @@ class CreateUsers < ActiveRecord::Migration[8.0]
       t.integer :best_streak
       t.integer :current_streak
 
+      # pomodoro statistics
+      t.integer :total_sessions
+      t.integer :total_breaks
+      t.integer :total_time
+
       # pomodoro settings
       t.time :settings_pomodoro_time 
       t.time :settings_pomodoro_break
