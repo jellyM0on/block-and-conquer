@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :user_profile_items, dependent: :destroy
   has_many :todo_list_items, dependent: :destroy
   has_many :flashcard_decks, dependent: :destroy
+  has_many :flashcard_deck_reviews, dependent: :destroy
   has_many :conquest_progs, dependent: :destroy
   has_many :daily_reviews, dependent: :destroy
   has_many :sites, dependent: :destroy

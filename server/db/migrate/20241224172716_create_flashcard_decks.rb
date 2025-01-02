@@ -5,7 +5,7 @@ class CreateFlashcardDecks < ActiveRecord::Migration[8.0]
 
       t.string :name, null: false
       t.text :description, null: false 
-      t.integer :type, null: false 
+      t.integer :deck_type, null: false 
       t.integer :subject, null: false 
       t.integer :privacy_status, null: false 
       t.json :tags

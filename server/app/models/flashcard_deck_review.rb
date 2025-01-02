@@ -1,4 +1,5 @@
 class FlashcardDeckReview < ApplicationRecord
+  belongs_to :user
   belongs_to :flashcard_deck
   has_many :flashcard_reviews, dependent: :destroy
 

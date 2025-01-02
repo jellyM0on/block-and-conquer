@@ -66,7 +66,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_165149) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "type", null: false
+    t.integer "deck_type", null: false
     t.integer "subject", null: false
     t.integer "privacy_status", null: false
     t.json "tags"
@@ -95,7 +95,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_165149) do
 
   create_table "flashcards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "flashcard_deck_id", null: false
-    t.integer "type", null: false
+    t.integer "card_type", null: false
     t.text "question", null: false
     t.text "answer", null: false
     t.integer "order", null: false
@@ -116,7 +116,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_165149) do
   end
 
   create_table "profile_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "type", null: false
+    t.integer "profile_type", null: false
     t.integer "price", null: false
     t.integer "style", null: false
     t.string "reference", null: false

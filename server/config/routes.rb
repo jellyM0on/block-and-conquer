@@ -17,6 +17,8 @@ Rails.application.routes.draw do
         get :show_daily_reviews, path: "pomodoro_reviews"
         put :update_pomodoro_settings, path: "pomodoro_settings"
       end
+
+      resources :flashcard_decks
     end
   end
 
