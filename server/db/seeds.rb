@@ -93,6 +93,7 @@ flashcard_deck = FlashcardDeck.create(
   privacy_status: "public_all", 
   tags: ["math", "algebra"],
   views: 5,
+  total_flashcards: 1
 )
 
 flashcard = Flashcard.create(
@@ -132,6 +133,7 @@ flashcard_deck2 = FlashcardDeck.create(
   privacy_status: "public_all", 
   tags: ["math", "algebra"],
   views: 5,
+  total_flashcards: 1
 )
 
 flashcard_2 = Flashcard.create(

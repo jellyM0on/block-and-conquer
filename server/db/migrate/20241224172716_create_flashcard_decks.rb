@@ -10,6 +10,7 @@ class CreateFlashcardDecks < ActiveRecord::Migration[8.0]
       t.integer :privacy_status, null: false 
       t.json :tags
       t.integer :last_edited_by 
+      t.integer :total_flashcards
       t.integer :views 
 
       t.timestamps

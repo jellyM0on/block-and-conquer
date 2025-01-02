@@ -5,11 +5,6 @@ class FlashcardDeckPublicSerializer < ActiveModel::Serializer
   :description,
   :views, 
   :user_name,
-  :total_flashcards, 
-  
-  def total_flashcards 
-    object.flashcards.count
-  end
 
   def user_name
     object.user.name

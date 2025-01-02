@@ -2,27 +2,20 @@ class FlashcardDecksController < ApplicationController
   # before_action :verify_auth
   # before_action :set_current_user
 
-  def index 
-    user_decks = FlashcardDeck
-      .includes(:flashcards, flashcard_deck_reviews: :flashcard_reviews)
-      .where(user_id: params[:user_id])
-      .order(:updated_at)
-      .page(params[:page] ? params[:page].to_i: 1)
-      .per(params[:limit] || 6)
-
-    public_decks = FlashcardDeck
-    .where.not(user_id: params[:user_id])
-    .order(:views)
-    .page(params[:page] ? params[:page].to_i: 1)
-    .per(params[:limit] || 12)
+  def index
+    user_decks = FlashcardDeck.get_own_with_overview(params[:user_id], params[:page], params[:limit])
+    public_decks = FlashcardDeck.get_public_with_overview(params[:user_id], params[:page], params[:limit])
   
-    render json: { 
-      user_decks: ActiveModelSerializers::SerializableResource.new(user_decks, each_serializer: FlashcardDeckUserSerializer), 
-      user_decks_pagination_meta: pagination_meta(user_decks), 
-      public_decks: ActiveModelSerializers::SerializableResource.new(public_decks, each_serializer: FlashcardDeckPublicSerializer), 
-      public_decks_pagination_meta: pagination_meta(public_decks),  
+    render json: {
+      user_decks: {
+        decks: ActiveModelSerializers::SerializableResource.new(user_decks[:decks], each_serializer: FlashcardDeckUserSerializer),
+        pagination_meta: user_decks[:pagination_meta]
+      },
+      public_decks: {
+        decks: ActiveModelSerializers::SerializableResource.new(public_decks[:decks], each_serializer: FlashcardDeckPublicSerializer),
+        pagination_meta: public_decks[:pagination_meta]
+      }
     }, status: :ok
-  
   end
 
   private 

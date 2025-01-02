@@ -71,6 +71,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_165149) do
     t.integer "privacy_status", null: false
     t.json "tags"
     t.integer "last_edited_by"
+    t.integer "total_flashcards"
     t.integer "views"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
