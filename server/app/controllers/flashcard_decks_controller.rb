@@ -1,6 +1,7 @@
 class FlashcardDecksController < ApplicationController
   # before_action :verify_auth
   # before_action :set_current_user
+  before_action :validate_flashcard_deck_params, only: [ :create ]
 
   def index
     user_decks = FlashcardDeck.get_own_with_overview(params[:user_id], params[:page], params[:limit])
@@ -18,14 +19,68 @@ class FlashcardDecksController < ApplicationController
     }, status: :ok
   end
 
-  private 
+  def show
+    flashcard_deck = FlashcardDeck.find(params[:id])
 
-  def pagination_meta(decks) {
-    current_page: decks.current_page,
-    next_page: decks.next_page,
-    total_pages: decks.total_pages,
-    total_count: decks.total_count
-  }
+    render json: { flashcard_deck: ActiveModelSerializers::SerializableResource.new(flashcard_deck, each_serializer: FlashcardDeckViewSerializer) }, 
+      status: :ok
   end
+
+  def create
+    flashcard_deck = FlashcardDeck.new(@validated_flashcard_deck_params)
+    flashcard_deck.user_id = params[:user_id]
+    flashcard_deck.deck_type = "mixed"
+
+    if(flashcard_deck.save)
+      build_flashcards(flashcard_deck.id)
+      render json: { flashcard_deck: ActiveModelSerializers::SerializableResource.new(flashcard_deck, each_serializer: FlashcardDeckCreateSerializer) }, 
+        status: :created
+    else 
+      render json: flashcard_deck.errors, status: :bad_request
+    end
+  end
+
+  def update
+    
+  end
+
+  def destroy
+    
+  end
+
+  private
+
+  def validate_flashcard_deck_params
+    @validated_flashcard_deck_params = params.require(:flashcard_deck).permit(
+      :name, 
+      :description,
+      :subject, 
+      :privacy_status,
+      tags: [],
+      flashcards: [:card_type, :question, :answer, :order]
+    )
+  end
+
+  def build_flashcards(flashcard_deck)
+    flashcards = params[:flashcards]
+
+    if(flashcards.present?)
+      flashcards.each do |card|
+        puts card["question"].to_json
+        card = Flashcard.new(
+          flashcard_deck_id: flashcard_deck,
+          card_type: card["card_type"], 
+          question: card["question"],
+          answer: card["answer"], 
+          order: card["order"]
+        )
+        card.save
+        if(card.errors)
+          puts card.errors
+        end
+      end
+    end
+  end
+ 
   
 end

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
       resources :flashcard_decks
     end
+
+    get '/flashcard_decks/:id', to: 'flashcard_decks#show'
   end
 
 end
