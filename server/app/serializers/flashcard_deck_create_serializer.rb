@@ -1,9 +1,11 @@
-class FlashcardDeckCreateSerializer < ActiveModel::Serializer
+class FlashcardDeckWithCardsSerializer < ActiveModel::Serializer
   attributes :id, 
   :name, 
+  :description,
+  :subject, 
   :tags, 
-  :total_flashcards
+  :privacy_status
   
-  has_many :flashcard_deck_reviews, serializer: FlashcardDeckReviewSerializer
+  has_many :flashcards, serializer: FlashcardSerializer
   
 end

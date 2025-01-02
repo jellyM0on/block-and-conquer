@@ -45,7 +45,13 @@ class FlashcardDecksController < ApplicationController
   end
 
   def destroy
-    
+    flashcard_deck = FlashcardDeck.find(params[:id])
+
+    if(flashcard_deck.destroy)
+      render json: { flashcard_deck: {id: flashcard_deck.id } }, status: :ok
+    else 
+      render json: { flashcard_deck: flashcard_deck.errors }, status: :bad_request
+    end
   end
 
   private
