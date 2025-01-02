@@ -2,6 +2,7 @@ class FlashcardDecksController < ApplicationController
   # before_action :verify_auth
   # before_action :set_current_user
   before_action :validate_flashcard_deck_params, only: [ :create ]
+  before_action :validate_flashcard_deck_params_update, only: [ :update ]
 
   def index
     user_decks = FlashcardDeck.get_own_with_overview(params[:user_id], params[:page], params[:limit])
@@ -41,6 +42,18 @@ class FlashcardDecksController < ApplicationController
   end
 
   def update
+    flashcard_deck = FlashcardDeck.find(params[:id])
+
+    if flashcard_deck.update(@validated_flashcard_deck_params_update)
+      update_flashcards
+      add_flashcards(flashcard_deck.id)
+      delete_flashcards
+
+      render json: {  flashcard_deck: ActiveModelSerializers::SerializableResource.new(flashcard_deck, each_serializer: FlashcardDeckCreateSerializer) },
+      status: :ok
+    else 
+      render json: flashcard_deck.errors, status: :bad_request
+    end
     
   end
 
@@ -67,6 +80,19 @@ class FlashcardDecksController < ApplicationController
     )
   end
 
+  def validate_flashcard_deck_params_update
+    @validated_flashcard_deck_params_update = params.require(:flashcard_deck).permit(
+      :name, 
+      :description,
+      :subject, 
+      :privacy_status,
+      tags: [],
+      new_flashcards: [:card_type, :question, :answer, :order],
+      edit_flashcards: [:card_type, :question, :answer, :order],
+      delete_flashcards: [:card_type, :question, :answer, :order],
+    )
+  end
+
   def build_flashcards(flashcard_deck)
     flashcards = params[:flashcards]
 
@@ -84,6 +110,55 @@ class FlashcardDecksController < ApplicationController
         if(card.errors)
           puts card.errors
         end
+      end
+    end
+  end
+
+  def update_flashcards
+    flashcards = params[:edit_flashcards]
+    if(flashcards.present?)
+      flashcards.each do |card|
+        card = Flashcard.find(card["id"])
+        card.update(
+          card_type: card["card_type"],
+          question: card["question"],
+          answer: card["answer"],
+          order: card["order"]
+        ) 
+        
+        if(card.errors)
+          puts card.errors
+        end
+      end
+      
+    end
+  end
+
+  def add_flashcards(flashcard_deck)
+    flashcards = params[:add_flashcards]
+    if(flashcards.present?)
+      flashcards.each do |card|
+        card = Flashcard.new(
+          flashcard_deck_id: flashcard_deck,
+          card_type: card["card_type"], 
+          question: card["question"],
+          answer: card["answer"], 
+          order: card["order"]
+        )
+        card.save
+        if(card.errors)
+          puts card.errors
+        end
+      end
+    end
+  end
+
+  def delete_flashcards
+    flashcards = params[:delete_flashcards]
+    if(flashcards.present?)
+      flashcards.each do |card|
+        card = Flashcard.find(card["id"])
+        card.destroy
       end
     end
   end

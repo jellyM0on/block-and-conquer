@@ -1,4 +1,4 @@
-class FlashcardDeckWithCardsSerializer < ActiveModel::Serializer
+class FlashcardDeckCreateSerializer < ActiveModel::Serializer
   attributes :id, 
   :name, 
   :description,
