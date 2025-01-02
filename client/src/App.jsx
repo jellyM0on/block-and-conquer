@@ -7,6 +7,7 @@ import Interest from "./pages/Interest/Interest";
 import Avatar from "./pages/Avatar/Avatar";
 import Test from "./pages/Test";
 import Test2 from "./pages/Test2";
+import SiteBlocker from "./pages/SiteBlocker/SiteBlocker/SiteBlocker";
 
 import "./App.css";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/avatar" element={<Avatar />} />
         <Route path="/test" element={<Test />} />
         <Route path="/test2" element={<Test2 />} />
+        <Route path="/site-blocker" element={<SiteBlocker />} />
       </Routes>
     </Router>
   );
