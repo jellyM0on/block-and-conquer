@@ -18,6 +18,8 @@ Rails.application.routes.draw do
         put :update_pomodoro_settings, path: "pomodoro_settings"
       end
 
+      put '/flashcard_decks/:id/reviews', to: 'flashcard_reviews#update'
+      
       resources :flashcard_decks do
         resources :flashcard_deck_comments
       end
