@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: QanelasBold;
+  src: url(../../fonts/Qanelas/QanelasBold.otf);
+}
+
+@font-face {
+  font-family: QanelasSemiBold;
+  src: url(../../fonts/Qanelas/QanelasSemiBold.otf);
+}
+
+@font-face {
+  font-family: QanelasMedium;
+  src: url(../../fonts/Qanelas/QanelasMedium.otf);
+}
+
+@font-face {
+  font-family: QanelasRegular;
+  src: url(../../fonts/Qanelas/QanelasRegular.otf);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background: #fdeae5;
+  color: #333;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px;
+}
+
+a {
+  font-family: "QanelasSemiBold";
+}
+
+.header-interest {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0 80px 0;
+}
+
+.header-interest .back-btn {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 200px;
+  top: 60px;
+  cursor: pointer;
+}
+
+.interest-heading {
+  display: flex;
+  font-family: "QanelasBold";
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.interest-instructions {
+  font-family: "QanelasSemiBold";
+  margin-bottom: 20px;
+}
+
+.interest-container {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.topic-list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+}
+
+.interest-item {
+  padding: 10px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "QanelasMedium";
+}
+
+.interest-item:hover {
+  border-color: #ff4400;
+}
+
+.interest-item.selected {
+  border-color: #ff4400;
+  background-color: #ff4400;
+  color: #fff;
+}
+
+.save-btn-container-interest {
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.save-interest-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #ff4400;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 250px;
+  font-family: "QanelasSemiBold";
+}
+
+.save-interest-btn:hover {
+  background-color: #d83c03;
+}
+
+.save-interest-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,120 @@
+/* BAKA LANG MAKALIMUTAN KO, PARA DOON SA ORANGE BESIDE NG NAME NUNG TAB, GAWA NA LANG NG 
+FUNCTION SA SIDEBAR.JSX NA KUNG SAAN MAGSHOW SIYA IF MAY BAGO DOON, ACTS AS A NOTIF OR
+SOMETHING */
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: QanelasBold;
+  src: url(../../fonts/Qanelas/QanelasBold.otf);
+}
+
+@font-face {
+  font-family: QanelasSemiBold;
+  src: url(../../fonts/Qanelas/QanelasSemiBold.otf);
+}
+
+@font-face {
+  font-family: QanelasMedium;
+  src: url(../../fonts/Qanelas/QanelasMedium.otf);
+}
+
+@font-face {
+  font-family: QanelasRegular;
+  src: url(../../fonts/Qanelas/QanelasRegular.otf);
+}
+
+.sidebar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.brand {
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  margin: 16px 16px 16px 20px;
+}
+
+.brand .appname {
+  font-family: "QanelasBold";
+  font-size: 28px;
+  margin: 0;
+}
+
+.brand .conquer {
+  color: #ff4400;
+}
+
+.brand .tagline {
+  font-family: "QanelasMedium";
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+h5 {
+  font-size: 10px;
+  font-family: "QanelasRegular";
+  margin: 9px 20px;
+  color: #8c8c8c;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  margin: 5px 16px;
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  font-family: "QanelassemiBold";
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+}
+
+.menu-item:hover {
+  border: 1px solid #b3b3b3;
+}
+
+.menu-item.active {
+  background-color: #ff4400;
+  color: white;
+  box-shadow: 0px 5px 33px 0px rgba(0, 0, 0, 0.19);
+}
+
+.menu-item.active:hover {
+  border: 1px solid transparent;
+}
+
+.menu-item img {
+  height: 18px;
+}
+
+.menu-item.active img {
+  filter: brightness(0) invert(1);
+}
+
+.sidebar-main,
+.sidebar-focus {
+  margin-bottom: 14px;
+}
+
+.sidebar-social {
+  margin-bottom: 24px;
+}
+
+.sidebar-footer {
+  padding-top: 6px;
+  border-top: 1px solid #ddd;
+}
